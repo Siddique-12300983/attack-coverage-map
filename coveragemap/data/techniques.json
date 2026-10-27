@@ -1,0 +1,665 @@
+{
+  "T1003": {
+    "name": "OS Credential Dumping",
+    "tactics": [
+      "credential-access"
+    ]
+  },
+  "T1003.001": {
+    "name": "OS Credential Dumping: LSASS Memory",
+    "tactics": [
+      "credential-access"
+    ]
+  },
+  "T1003.002": {
+    "name": "OS Credential Dumping: Security Account Manager",
+    "tactics": [
+      "credential-access"
+    ]
+  },
+  "T1003.003": {
+    "name": "OS Credential Dumping: NTDS",
+    "tactics": [
+      "credential-access"
+    ]
+  },
+  "T1016": {
+    "name": "System Network Configuration Discovery",
+    "tactics": [
+      "discovery"
+    ]
+  },
+  "T1021": {
+    "name": "Remote Services",
+    "tactics": [
+      "lateral-movement"
+    ]
+  },
+  "T1021.001": {
+    "name": "Remote Services: Remote Desktop Protocol",
+    "tactics": [
+      "lateral-movement"
+    ]
+  },
+  "T1021.002": {
+    "name": "Remote Services: SMB/Windows Admin Shares",
+    "tactics": [
+      "lateral-movement"
+    ]
+  },
+  "T1027": {
+    "name": "Obfuscated Files or Information",
+    "tactics": [
+      "defense-evasion"
+    ]
+  },
+  "T1033": {
+    "name": "System Owner/User Discovery",
+    "tactics": [
+      "discovery"
+    ]
+  },
+  "T1036": {
+    "name": "Masquerading",
+    "tactics": [
+      "defense-evasion"
+    ]
+  },
+  "T1036.005": {
+    "name": "Masquerading: Match Legitimate Name or Location",
+    "tactics": [
+      "defense-evasion"
+    ]
+  },
+  "T1041": {
+    "name": "Exfiltration Over C2 Channel",
+    "tactics": [
+      "exfiltration"
+    ]
+  },
+  "T1046": {
+    "name": "Network Service Discovery",
+    "tactics": [
+      "discovery"
+    ]
+  },
+  "T1047": {
+    "name": "Windows Management Instrumentation",
+    "tactics": [
+      "execution"
+    ]
+  },
+  "T1048": {
+    "name": "Exfiltration Over Alternative Protocol",
+    "tactics": [
+      "exfiltration"
+    ]
+  },
+  "T1049": {
+    "name": "System Network Connections Discovery",
+    "tactics": [
+      "discovery"
+    ]
+  },
+  "T1053": {
+    "name": "Scheduled Task/Job",
+    "tactics": [
+      "execution",
+      "persistence",
+      "privilege-escalation"
+    ]
+  },
+  "T1053.003": {
+    "name": "Scheduled Task/Job: Cron",
+    "tactics": [
+      "execution",
+      "persistence",
+      "privilege-escalation"
+    ]
+  },
+  "T1053.005": {
+    "name": "Scheduled Task/Job: Scheduled Task",
+    "tactics": [
+      "execution",
+      "persistence",
+      "privilege-escalation"
+    ]
+  },
+  "T1053.006": {
+    "name": "Scheduled Task/Job: Systemd Timers",
+    "tactics": [
+      "execution",
+      "persistence",
+      "privilege-escalation"
+    ]
+  },
+  "T1055": {
+    "name": "Process Injection",
+    "tactics": [
+      "defense-evasion",
+      "privilege-escalation"
+    ]
+  },
+  "T1056": {
+    "name": "Input Capture",
+    "tactics": [
+      "collection",
+      "credential-access"
+    ]
+  },
+  "T1056.001": {
+    "name": "Input Capture: Keylogging",
+    "tactics": [
+      "collection",
+      "credential-access"
+    ]
+  },
+  "T1057": {
+    "name": "Process Discovery",
+    "tactics": [
+      "discovery"
+    ]
+  },
+  "T1059": {
+    "name": "Command and Scripting Interpreter",
+    "tactics": [
+      "execution"
+    ]
+  },
+  "T1059.001": {
+    "name": "Command and Scripting Interpreter: PowerShell",
+    "tactics": [
+      "execution"
+    ]
+  },
+  "T1059.003": {
+    "name": "Command and Scripting Interpreter: Windows Command Shell",
+    "tactics": [
+      "execution"
+    ]
+  },
+  "T1059.004": {
+    "name": "Command and Scripting Interpreter: Unix Shell",
+    "tactics": [
+      "execution"
+    ]
+  },
+  "T1068": {
+    "name": "Exploitation for Privilege Escalation",
+    "tactics": [
+      "privilege-escalation"
+    ]
+  },
+  "T1069": {
+    "name": "Permission Groups Discovery",
+    "tactics": [
+      "discovery"
+    ]
+  },
+  "T1069.002": {
+    "name": "Permission Groups Discovery: Domain Groups",
+    "tactics": [
+      "discovery"
+    ]
+  },
+  "T1070": {
+    "name": "Indicator Removal",
+    "tactics": [
+      "defense-evasion"
+    ]
+  },
+  "T1070.001": {
+    "name": "Indicator Removal: Clear Windows Event Logs",
+    "tactics": [
+      "defense-evasion"
+    ]
+  },
+  "T1071": {
+    "name": "Application Layer Protocol",
+    "tactics": [
+      "command-and-control"
+    ]
+  },
+  "T1071.001": {
+    "name": "Application Layer Protocol: Web Protocols",
+    "tactics": [
+      "command-and-control"
+    ]
+  },
+  "T1072": {
+    "name": "Software Deployment Tools",
+    "tactics": [
+      "execution",
+      "lateral-movement"
+    ]
+  },
+  "T1078": {
+    "name": "Valid Accounts",
+    "tactics": [
+      "defense-evasion",
+      "persistence",
+      "privilege-escalation",
+      "initial-access"
+    ]
+  },
+  "T1078.002": {
+    "name": "Valid Accounts: Domain Accounts",
+    "tactics": [
+      "defense-evasion",
+      "persistence",
+      "privilege-escalation",
+      "initial-access"
+    ]
+  },
+  "T1082": {
+    "name": "System Information Discovery",
+    "tactics": [
+      "discovery"
+    ]
+  },
+  "T1083": {
+    "name": "File and Directory Discovery",
+    "tactics": [
+      "discovery"
+    ]
+  },
+  "T1087": {
+    "name": "Account Discovery",
+    "tactics": [
+      "discovery"
+    ]
+  },
+  "T1087.002": {
+    "name": "Account Discovery: Domain Account",
+    "tactics": [
+      "discovery"
+    ]
+  },
+  "T1098": {
+    "name": "Account Manipulation",
+    "tactics": [
+      "persistence",
+      "privilege-escalation"
+    ]
+  },
+  "T1105": {
+    "name": "Ingress Tool Transfer",
+    "tactics": [
+      "command-and-control"
+    ]
+  },
+  "T1110": {
+    "name": "Brute Force",
+    "tactics": [
+      "credential-access"
+    ]
+  },
+  "T1110.001": {
+    "name": "Brute Force: Password Guessing",
+    "tactics": [
+      "credential-access"
+    ]
+  },
+  "T1110.003": {
+    "name": "Brute Force: Password Spraying",
+    "tactics": [
+      "credential-access"
+    ]
+  },
+  "T1110.004": {
+    "name": "Brute Force: Credential Stuffing",
+    "tactics": [
+      "credential-access"
+    ]
+  },
+  "T1133": {
+    "name": "External Remote Services",
+    "tactics": [
+      "initial-access",
+      "persistence"
+    ]
+  },
+  "T1134": {
+    "name": "Access Token Manipulation",
+    "tactics": [
+      "defense-evasion",
+      "privilege-escalation"
+    ]
+  },
+  "T1136": {
+    "name": "Create Account",
+    "tactics": [
+      "persistence"
+    ]
+  },
+  "T1136.001": {
+    "name": "Create Account: Local Account",
+    "tactics": [
+      "persistence"
+    ]
+  },
+  "T1136.002": {
+    "name": "Create Account: Domain Account",
+    "tactics": [
+      "persistence"
+    ]
+  },
+  "T1140": {
+    "name": "Deobfuscate/Decode Files or Information",
+    "tactics": [
+      "defense-evasion"
+    ]
+  },
+  "T1189": {
+    "name": "Drive-by Compromise",
+    "tactics": [
+      "initial-access"
+    ]
+  },
+  "T1190": {
+    "name": "Exploit Public-Facing Application",
+    "tactics": [
+      "initial-access"
+    ]
+  },
+  "T1204": {
+    "name": "User Execution",
+    "tactics": [
+      "execution"
+    ]
+  },
+  "T1204.001": {
+    "name": "User Execution: Malicious Link",
+    "tactics": [
+      "execution"
+    ]
+  },
+  "T1204.002": {
+    "name": "User Execution: Malicious File",
+    "tactics": [
+      "execution"
+    ]
+  },
+  "T1210": {
+    "name": "Exploitation of Remote Services",
+    "tactics": [
+      "lateral-movement"
+    ]
+  },
+  "T1218": {
+    "name": "System Binary Proxy Execution",
+    "tactics": [
+      "defense-evasion"
+    ]
+  },
+  "T1222": {
+    "name": "File and Directory Permissions Modification",
+    "tactics": [
+      "defense-evasion"
+    ]
+  },
+  "T1484": {
+    "name": "Domain or Tenant Policy Modification",
+    "tactics": [
+      "defense-evasion",
+      "privilege-escalation"
+    ]
+  },
+  "T1484.001": {
+    "name": "Domain or Tenant Policy Modification: Group Policy Modification",
+    "tactics": [
+      "defense-evasion",
+      "privilege-escalation"
+    ]
+  },
+  "T1485": {
+    "name": "Data Destruction",
+    "tactics": [
+      "impact"
+    ]
+  },
+  "T1486": {
+    "name": "Data Encrypted for Impact",
+    "tactics": [
+      "impact"
+    ]
+  },
+  "T1489": {
+    "name": "Service Stop",
+    "tactics": [
+      "impact"
+    ]
+  },
+  "T1491": {
+    "name": "Defacement",
+    "tactics": [
+      "impact"
+    ]
+  },
+  "T1505": {
+    "name": "Server Software Component",
+    "tactics": [
+      "persistence"
+    ]
+  },
+  "T1505.003": {
+    "name": "Server Software Component: Web Shell",
+    "tactics": [
+      "persistence"
+    ]
+  },
+  "T1518": {
+    "name": "Software Discovery",
+    "tactics": [
+      "discovery"
+    ]
+  },
+  "T1518.001": {
+    "name": "Software Discovery: Security Software Discovery",
+    "tactics": [
+      "discovery"
+    ]
+  },
+  "T1529": {
+    "name": "System Shutdown/Reboot",
+    "tactics": [
+      "impact"
+    ]
+  },
+  "T1543": {
+    "name": "Create or Modify System Process",
+    "tactics": [
+      "persistence",
+      "privilege-escalation"
+    ]
+  },
+  "T1543.002": {
+    "name": "Create or Modify System Process: Systemd Service",
+    "tactics": [
+      "persistence",
+      "privilege-escalation"
+    ]
+  },
+  "T1543.003": {
+    "name": "Create or Modify System Process: Windows Service",
+    "tactics": [
+      "persistence",
+      "privilege-escalation"
+    ]
+  },
+  "T1546": {
+    "name": "Event Triggered Execution",
+    "tactics": [
+      "persistence",
+      "privilege-escalation"
+    ]
+  },
+  "T1547": {
+    "name": "Boot or Logon Autostart Execution",
+    "tactics": [
+      "persistence",
+      "privilege-escalation"
+    ]
+  },
+  "T1547.001": {
+    "name": "Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder",
+    "tactics": [
+      "persistence",
+      "privilege-escalation"
+    ]
+  },
+  "T1548": {
+    "name": "Abuse Elevation Control Mechanism",
+    "tactics": [
+      "defense-evasion",
+      "privilege-escalation"
+    ]
+  },
+  "T1550": {
+    "name": "Use Alternate Authentication Material",
+    "tactics": [
+      "defense-evasion",
+      "lateral-movement"
+    ]
+  },
+  "T1552": {
+    "name": "Unsecured Credentials",
+    "tactics": [
+      "credential-access"
+    ]
+  },
+  "T1555": {
+    "name": "Credentials from Password Stores",
+    "tactics": [
+      "credential-access"
+    ]
+  },
+  "T1556": {
+    "name": "Modify Authentication Process",
+    "tactics": [
+      "credential-access",
+      "defense-evasion",
+      "persistence"
+    ]
+  },
+  "T1557": {
+    "name": "Adversary-in-the-Middle",
+    "tactics": [
+      "collection",
+      "credential-access"
+    ]
+  },
+  "T1557.001": {
+    "name": "Adversary-in-the-Middle: LLMNR/NBT-NS Poisoning and SMB Relay",
+    "tactics": [
+      "collection",
+      "credential-access"
+    ]
+  },
+  "T1558": {
+    "name": "Steal or Forge Kerberos Tickets",
+    "tactics": [
+      "credential-access"
+    ]
+  },
+  "T1558.003": {
+    "name": "Steal or Forge Kerberos Tickets: Kerberoasting",
+    "tactics": [
+      "credential-access"
+    ]
+  },
+  "T1558.004": {
+    "name": "Steal or Forge Kerberos Tickets: AS-REP Roasting",
+    "tactics": [
+      "credential-access"
+    ]
+  },
+  "T1562": {
+    "name": "Impair Defenses",
+    "tactics": [
+      "defense-evasion"
+    ]
+  },
+  "T1562.001": {
+    "name": "Impair Defenses: Disable or Modify Tools",
+    "tactics": [
+      "defense-evasion"
+    ]
+  },
+  "T1564": {
+    "name": "Hide Artifacts",
+    "tactics": [
+      "defense-evasion"
+    ]
+  },
+  "T1564.001": {
+    "name": "Hide Artifacts: Hidden Files and Directories",
+    "tactics": [
+      "defense-evasion"
+    ]
+  },
+  "T1566": {
+    "name": "Phishing",
+    "tactics": [
+      "initial-access"
+    ]
+  },
+  "T1566.001": {
+    "name": "Phishing: Spearphishing Attachment",
+    "tactics": [
+      "initial-access"
+    ]
+  },
+  "T1566.002": {
+    "name": "Phishing: Spearphishing Link",
+    "tactics": [
+      "initial-access"
+    ]
+  },
+  "T1569": {
+    "name": "System Services",
+    "tactics": [
+      "execution"
+    ]
+  },
+  "T1569.002": {
+    "name": "System Services: Service Execution",
+    "tactics": [
+      "execution"
+    ]
+  },
+  "T1570": {
+    "name": "Lateral Tool Transfer",
+    "tactics": [
+      "lateral-movement"
+    ]
+  },
+  "T1574": {
+    "name": "Hijack Execution Flow",
+    "tactics": [
+      "defense-evasion",
+      "persistence",
+      "privilege-escalation"
+    ]
+  },
+  "T1574.006": {
+    "name": "Hijack Execution Flow: Dynamic Linker Hijacking",
+    "tactics": [
+      "defense-evasion",
+      "persistence",
+      "privilege-escalation"
+    ]
+  },
+  "T1589": {
+    "name": "Gather Victim Identity Information",
+    "tactics": [
+      "reconnaissance"
+    ]
+  },
+  "T1595": {
+    "name": "Active Scanning",
+    "tactics": [
+      "reconnaissance"
+    ]
+  }
+}

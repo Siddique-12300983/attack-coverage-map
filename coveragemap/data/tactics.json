@@ -1,0 +1,58 @@
+[
+  {
+    "shortname": "reconnaissance",
+    "name": "Reconnaissance"
+  },
+  {
+    "shortname": "resource-development",
+    "name": "Resource Development"
+  },
+  {
+    "shortname": "initial-access",
+    "name": "Initial Access"
+  },
+  {
+    "shortname": "execution",
+    "name": "Execution"
+  },
+  {
+    "shortname": "persistence",
+    "name": "Persistence"
+  },
+  {
+    "shortname": "privilege-escalation",
+    "name": "Privilege Escalation"
+  },
+  {
+    "shortname": "defense-evasion",
+    "name": "Defense Evasion"
+  },
+  {
+    "shortname": "credential-access",
+    "name": "Credential Access"
+  },
+  {
+    "shortname": "discovery",
+    "name": "Discovery"
+  },
+  {
+    "shortname": "lateral-movement",
+    "name": "Lateral Movement"
+  },
+  {
+    "shortname": "collection",
+    "name": "Collection"
+  },
+  {
+    "shortname": "command-and-control",
+    "name": "Command and Control"
+  },
+  {
+    "shortname": "exfiltration",
+    "name": "Exfiltration"
+  },
+  {
+    "shortname": "impact",
+    "name": "Impact"
+  }
+]
