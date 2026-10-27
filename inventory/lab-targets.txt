@@ -1,0 +1,35 @@
+# Techniques my AD lab and tooling are meant to cover.
+# One technique id per line, # starts a comment.
+# Anything here with no detection behind it shows up as a gap.
+
+# Credential access
+T1110            # Brute force
+T1558.003        # Kerberoasting
+T1558.004        # AS-REP roasting
+T1557.001        # LLMNR/NBT-NS poisoning and SMB relay
+T1003.001        # LSASS memory dumping
+T1552            # Unsecured credentials
+
+# Execution and persistence
+T1059.001        # PowerShell
+T1059.004        # Unix shell
+T1053.005        # Windows scheduled task
+T1053.006        # Systemd timers
+T1543.002        # Systemd service
+T1543.003        # Windows service
+T1136.002        # Domain account creation
+
+# Privilege escalation and lateral movement
+T1069.002        # Domain group discovery
+T1078.002        # Domain accounts
+T1021.001        # RDP
+T1550            # Alternate authentication material
+
+# Defense evasion
+T1562.001        # Disable or modify tools
+T1070.001        # Clear Windows event logs
+T1027            # Obfuscated files or information
+
+# Initial access
+T1566.001        # Spearphishing attachment
+T1566.002        # Spearphishing link

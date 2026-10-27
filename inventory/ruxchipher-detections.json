@@ -1,0 +1,215 @@
+{
+  "note": "Detections of mine that are not Sigma rules: the tools in my other repos, plus detections I confirmed by hand in my AD lab. Sigma rules are loaded separately with --sigma, so they are not duplicated here.",
+  "detections": [
+    {
+      "name": "Brute force: repeated failed logins from one source",
+      "kind": "tool",
+      "repo": "log-analyzer",
+      "url": "https://github.com/Siddique-12300983/log-analyzer",
+      "level": "high",
+      "logsource": "linux/auth.log, windows/security 4625",
+      "techniques": ["T1110", "T1110.001"],
+      "description": "Groups failed logins by source and flags a count inside a time window."
+    },
+    {
+      "name": "Brute force that ended in a successful login",
+      "kind": "tool",
+      "repo": "log-analyzer",
+      "url": "https://github.com/Siddique-12300983/log-analyzer",
+      "level": "high",
+      "logsource": "linux/auth.log, windows/security 4625 and 4624",
+      "techniques": ["T1110", "T1078"],
+      "description": "An IP that failed repeatedly and then authenticated, which is the finding that matters."
+    },
+    {
+      "name": "Kerberoasting: RC4 service ticket request",
+      "kind": "tool",
+      "repo": "log-analyzer",
+      "url": "https://github.com/Siddique-12300983/log-analyzer",
+      "level": "high",
+      "logsource": "windows/security 4769",
+      "techniques": ["T1558.003"],
+      "description": "The classic 0x17 encryption indicator on a TGS-REQ for a user service account."
+    },
+    {
+      "name": "Kerberoasting: SPN fan-out by one account",
+      "kind": "tool",
+      "repo": "log-analyzer",
+      "url": "https://github.com/Siddique-12300983/log-analyzer",
+      "level": "medium",
+      "logsource": "windows/security 4769",
+      "techniques": ["T1558.003"],
+      "description": "Behavioural detection that still works on an AES-only domain, where the RC4 rule misses."
+    },
+    {
+      "name": "Systemd unit running a binary from a writable path",
+      "kind": "tool",
+      "repo": "persistwatch",
+      "url": "https://github.com/Siddique-12300983/persistwatch",
+      "level": "high",
+      "logsource": "filesystem/systemd units",
+      "techniques": ["T1543.002"],
+      "description": "ExecStart under /tmp, /dev/shm, /var/tmp, /home or /run/user."
+    },
+    {
+      "name": "Systemd unit that is really a shell one-liner",
+      "kind": "tool",
+      "repo": "persistwatch",
+      "url": "https://github.com/Siddique-12300983/persistwatch",
+      "level": "high",
+      "logsource": "filesystem/systemd units",
+      "techniques": ["T1059.004"],
+      "description": "ExecStart passes an inline command to sh, bash or an interpreter."
+    },
+    {
+      "name": "Systemd unit that downloads its own payload",
+      "kind": "tool",
+      "repo": "persistwatch",
+      "url": "https://github.com/Siddique-12300983/persistwatch",
+      "level": "high",
+      "logsource": "filesystem/systemd units",
+      "techniques": ["T1543.002", "T1105"],
+      "description": "ExecStart calls curl, wget, nc or socat, often piped into a shell."
+    },
+    {
+      "name": "Systemd unit with an encoded or evaluated payload",
+      "kind": "tool",
+      "repo": "persistwatch",
+      "url": "https://github.com/Siddique-12300983/persistwatch",
+      "level": "high",
+      "logsource": "filesystem/systemd units",
+      "techniques": ["T1027"],
+      "description": "base64, xxd or eval in ExecStart, hiding what actually runs."
+    },
+    {
+      "name": "Systemd unit setting LD_PRELOAD",
+      "kind": "tool",
+      "repo": "persistwatch",
+      "url": "https://github.com/Siddique-12300983/persistwatch",
+      "level": "high",
+      "logsource": "filesystem/systemd units",
+      "techniques": ["T1574.006"],
+      "description": "The unit injects a shared object into its own process."
+    },
+    {
+      "name": "World-writable systemd unit or target binary",
+      "kind": "tool",
+      "repo": "persistwatch",
+      "url": "https://github.com/Siddique-12300983/persistwatch",
+      "level": "high",
+      "logsource": "filesystem/systemd units",
+      "techniques": ["T1543.002", "T1222"],
+      "description": "Any local user can change what root runs at boot."
+    },
+    {
+      "name": "Systemd unit name imitating a real system unit",
+      "kind": "tool",
+      "repo": "persistwatch",
+      "url": "https://github.com/Siddique-12300983/persistwatch",
+      "level": "high",
+      "logsource": "filesystem/systemd units",
+      "techniques": ["T1036.005"],
+      "description": "A name one or two characters away from a packaged unit."
+    },
+    {
+      "name": "Systemd timer firing fast enough to be a re-infection loop",
+      "kind": "tool",
+      "repo": "persistwatch",
+      "url": "https://github.com/Siddique-12300983/persistwatch",
+      "level": "medium",
+      "logsource": "filesystem/systemd timers",
+      "techniques": ["T1053.006"],
+      "description": "OnUnitActiveSec or OnBootSec below the threshold, or a minutely calendar."
+    },
+    {
+      "name": "Hidden systemd unit file",
+      "kind": "tool",
+      "repo": "persistwatch",
+      "url": "https://github.com/Siddique-12300983/persistwatch",
+      "level": "medium",
+      "logsource": "filesystem/systemd units",
+      "techniques": ["T1564.001"],
+      "description": "A dotfile unit that a plain ls will not show."
+    },
+    {
+      "name": "Email authentication failure and spoofed sender",
+      "kind": "tool",
+      "repo": "phishing-email-analyzer",
+      "url": "https://github.com/Siddique-12300983/phishing-email-analyzer",
+      "level": "medium",
+      "logsource": "email/.eml headers",
+      "techniques": ["T1566"],
+      "description": "SPF, DKIM and DMARC results read off the headers, plus From and Return-Path mismatch."
+    },
+    {
+      "name": "Lookalike sender or link domain",
+      "kind": "tool",
+      "repo": "phishing-email-analyzer",
+      "url": "https://github.com/Siddique-12300983/phishing-email-analyzer",
+      "level": "medium",
+      "logsource": "email/.eml headers and body",
+      "techniques": ["T1566.002", "T1036"],
+      "description": "Domains a character or two away from the one they are imitating."
+    },
+    {
+      "name": "Attachment hash and type triage",
+      "kind": "tool",
+      "repo": "phishing-email-analyzer",
+      "url": "https://github.com/Siddique-12300983/phishing-email-analyzer",
+      "level": "medium",
+      "logsource": "email/.eml attachments",
+      "techniques": ["T1566.001", "T1204.002"],
+      "description": "Hashes every attachment and flags executable and macro-capable types."
+    },
+    {
+      "name": "New file appearing in a monitored tree",
+      "kind": "tool",
+      "repo": "file-integrity-monitor",
+      "url": "https://github.com/Siddique-12300983/file-integrity-monitor",
+      "level": "medium",
+      "logsource": "filesystem/SHA-256 baseline",
+      "techniques": ["T1105"],
+      "description": "A file that was not in the baseline, which is how a dropped tool shows up."
+    },
+    {
+      "name": "Modified or deleted file in a monitored tree",
+      "kind": "tool",
+      "repo": "file-integrity-monitor",
+      "url": "https://github.com/Siddique-12300983/file-integrity-monitor",
+      "level": "medium",
+      "logsource": "filesystem/SHA-256 baseline",
+      "techniques": ["T1070"],
+      "description": "A changed hash or a missing file, which is how log and binary tampering shows up."
+    },
+    {
+      "name": "Kerberoasting confirmed in my AD lab",
+      "kind": "lab",
+      "repo": "purple-team-journey",
+      "url": "https://github.com/Siddique-12300983/purple-team-journey",
+      "level": "high",
+      "logsource": "windows/security 4769 on DC01",
+      "techniques": ["T1558.003"],
+      "description": "Ran the attack against my own domain, then found it in the DC Security log. On Server 2025 the ticket came back AES, not RC4, which is written up in the repo."
+    },
+    {
+      "name": "LLMNR and NBT-NS poisoning confirmed in my AD lab",
+      "kind": "lab",
+      "repo": "purple-team-journey",
+      "url": "https://github.com/Siddique-12300983/purple-team-journey",
+      "level": "medium",
+      "logsource": "windows/network_connection, Sysmon",
+      "techniques": ["T1557.001"],
+      "description": "Poisoned name resolution on the lab segment and traced the responder traffic back in the logs."
+    },
+    {
+      "name": "Defender exclusion added before a tool was staged",
+      "kind": "lab",
+      "repo": "purple-team-journey",
+      "url": "https://github.com/Siddique-12300983/purple-team-journey",
+      "level": "medium",
+      "logsource": "windows/windefend 5007",
+      "techniques": ["T1562.001"],
+      "description": "Observed in my own lab when I excluded a folder before a credential-access test."
+    }
+  ]
+}

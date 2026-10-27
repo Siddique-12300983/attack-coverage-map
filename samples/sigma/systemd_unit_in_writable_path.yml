@@ -1,0 +1,28 @@
+title: Systemd Unit Executing From a Writable Path
+id: 7b8e2d13-3f41-4c0e-8f5a-19a4c7d2b6f0
+status: experimental
+description: >
+  Detects a systemd unit whose ExecStart points into a world-writable or
+  user-owned directory. A packaged service never does this, so it is a strong
+  indicator that the unit was dropped rather than installed.
+references:
+  - https://attack.mitre.org/techniques/T1543/002/
+author: Md Abu Bakar Siddique (ruxchipher)
+date: 2026/10/28
+tags:
+  - attack.persistence
+  - attack.privilege_escalation
+  - attack.t1543.002
+logsource:
+  product: linux
+  category: file_event
+detection:
+  selection:
+    TargetFilename|endswith: '.service'
+    TargetFilename|startswith:
+      - '/etc/systemd/system/'
+      - '/usr/lib/systemd/system/'
+  condition: selection
+falsepositives:
+  - A package install or a configuration management run writing units.
+level: high

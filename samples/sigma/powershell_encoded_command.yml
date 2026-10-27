@@ -1,0 +1,33 @@
+title: PowerShell Encoded Command
+id: 5a1c9f22-8d7b-4e36-b0a1-c3e8d4f71a95
+status: experimental
+description: |
+  Detects PowerShell started with -EncodedCommand or one of its abbreviations.
+  Encoding the command is not an attack by itself, but legitimate automation
+  rarely needs it, so it is worth a look every time.
+references:
+  - https://attack.mitre.org/techniques/T1059/001/
+  - https://attack.mitre.org/techniques/T1027/
+author: Md Abu Bakar Siddique (ruxchipher)
+date: 2026/10/28
+tags:
+  - attack.execution
+  - attack.defense_evasion
+  - attack.t1059.001
+  - attack.t1027
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    Image|endswith:
+      - '\powershell.exe'
+      - '\pwsh.exe'
+    CommandLine|contains:
+      - ' -enc '
+      - ' -encodedcommand '
+      - ' -ec '
+  condition: selection
+falsepositives:
+  - Software deployment tools that encode their own bootstrap commands.
+level: high

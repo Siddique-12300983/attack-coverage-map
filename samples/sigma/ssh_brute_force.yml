@@ -1,0 +1,26 @@
+title: SSH Brute Force From a Single Source
+id: 0c1d4f9a-6e2b-4a77-9a7e-2c6f0b1d8e31
+status: experimental
+description: >
+  Detects many failed SSH authentications from one source address inside a
+  short window. On its own a handful of failures is noise, so the rule leans on
+  the count rather than the single event.
+references:
+  - https://attack.mitre.org/techniques/T1110/
+author: Md Abu Bakar Siddique (ruxchipher)
+date: 2026/10/28
+tags:
+  - attack.credential_access
+  - attack.t1110
+  - attack.t1110.001
+logsource:
+  product: linux
+  service: sshd
+detection:
+  selection:
+    message|contains: 'Failed password for'
+  timeframe: 5m
+  condition: selection | count() by src_ip > 10
+falsepositives:
+  - A misconfigured client or a monitoring probe retrying with stale credentials.
+level: high
