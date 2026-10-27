@@ -1,0 +1,15 @@
+title: Minimal Rule
+id: aaaaaaaa-0000-0000-0000-000000000001
+description: One line description.
+author: test
+tags:
+  - attack.credential_access
+  - attack.t1110
+logsource:
+  product: linux
+  service: sshd
+detection:
+  selection:
+    field: value
+  condition: selection
+level: high

@@ -1,0 +1,11 @@
+title: Rule Without An Attack Tag
+id: aaaaaaaa-0000-0000-0000-000000000005
+tags:
+  - detection.threat_hunting
+logsource:
+  product: linux
+detection:
+  selection:
+    field: c
+  condition: selection
+level: low

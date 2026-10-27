@@ -1,0 +1,25 @@
+title: First Of Two
+id: aaaaaaaa-0000-0000-0000-000000000002
+tags:
+  - attack.persistence
+  - attack.t1543.002
+logsource:
+  product: linux
+detection:
+  selection:
+    field: a
+  condition: selection
+level: medium
+---
+title: Second Of Two
+id: aaaaaaaa-0000-0000-0000-000000000003
+tags:
+  - attack.execution
+  - attack.t1059.004
+logsource:
+  product: linux
+detection:
+  selection:
+    field: b
+  condition: selection
+level: low

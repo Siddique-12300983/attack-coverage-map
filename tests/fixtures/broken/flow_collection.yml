@@ -1,0 +1,8 @@
+title: Uses A Flow Collection
+id: aaaaaaaa-0000-0000-0000-000000000006
+tags: [attack.execution, attack.t1059.001]
+detection:
+  selection:
+    field: d
+  condition: selection
+level: low

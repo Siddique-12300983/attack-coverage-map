@@ -1,0 +1,4 @@
+# This file is YAML but it is not a Sigma rule, so it should be skipped
+# with a warning rather than counted as a detection.
+some_key: some value
+another: 3

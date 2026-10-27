@@ -1,0 +1,26 @@
+title: Folded And Literal Scalars
+id: aaaaaaaa-0000-0000-0000-000000000004
+description: >
+  This description is folded over
+  three separate lines and should
+  come back as one line of text.
+
+  This is a second paragraph.
+details: |
+  line one
+  line two
+tags:
+  - attack.defense_evasion
+  - attack.t1562.001
+logsource:
+  product: windows
+  service: windefend
+detection:
+  selection:
+    EventID: 5007
+    New Value|contains: '\Exclusions\'   # a comment after a quoted value
+  condition: selection
+falsepositives:
+  - An administrator adding an exclusion on purpose.
+  - Endpoint software managing its own exclusions.
+level: medium
