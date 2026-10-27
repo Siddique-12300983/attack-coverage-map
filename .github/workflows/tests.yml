@@ -1,0 +1,55 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  unittest:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Run the test suite
+        run: python -m unittest discover -s tests -t . -v
+
+      - name: The sample rules must still produce a report
+        run: |
+          python -m coveragemap --sigma samples/sigma | tee /tmp/report.txt
+          grep -q "3 Sigma rules" /tmp/report.txt
+
+      - name: The shipped inventory must load without warnings
+        run: |
+          python -m coveragemap --inventory inventory/ruxchipher-detections.json \
+            > /tmp/inv.txt
+          if grep -q "Load warnings" /tmp/inv.txt; then
+            echo "the shipped inventory produced load warnings"
+            cat /tmp/inv.txt
+            exit 1
+          fi
+
+      - name: Regenerate the published outputs and check they did not drift
+        run: |
+          python -m coveragemap \
+            --sigma samples/sigma \
+            --inventory inventory/ruxchipher-detections.json \
+            --targets inventory/lab-targets.txt \
+            --navigator /tmp/layer.json --html /tmp/map.html --quiet
+          python -c "import json; d=json.load(open('/tmp/layer.json')); assert d['versions']['layer']=='4.5'"
+          grep -q "<!doctype html>" /tmp/map.html
+
+      - name: --fail-on-gaps must exit 1 while targets are uncovered
+        run: |
+          set +e
+          python -m coveragemap --sigma samples/sigma \
+            --targets inventory/lab-targets.txt --fail-on-gaps --quiet
+          code=$?
+          set -e
+          test "$code" -eq 1
